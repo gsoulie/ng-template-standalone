@@ -14,4 +14,4 @@ bootstrapApplication(AppComponent, {
     importProvidersFrom(RouterModule.forRoot(routes))
   ]
 })
-  .catch(err => console.error(err))
+.catch(err => console.error(err))
