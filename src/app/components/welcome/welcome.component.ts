@@ -1,4 +1,4 @@
-import { Component, DestroyRef, Input, inject, signal, computed } from '@angular/core';
+import { Component, DestroyRef, Input, inject, signal, computed, effect } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
   <ul>
     <li><span>Counter value : {{ counter() }}</span></li>
     <li><span>Computed value (^2): {{ pow() }}</span></li>
+    <li><i>Open the console to see the signal effect()</i></li>
     <li><button class="btn btn-plain" (click)="increment()">Increment signal counter</button></li>
   </ul>
   `,
@@ -34,6 +35,8 @@ export default class WelcomeComponent {
     inject(DestroyRef).onDestroy(() => {
       // observable unsubscriptions etc...
     })
+
+    effect(() => console.log(`signal effect : new counter value > ${this.counter()}`));
   }
 
   increment() {

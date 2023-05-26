@@ -11,7 +11,7 @@ export const routes: Routes = [
     loadComponent: () => import('./components/welcome/welcome.component'),
     title: 'Welcome on Angular template',
     data: {
-      routeInfo: 'This i a parameter from the route data object'
+      routeInfo: 'This is a parameter from the route data object'
     }
   }
 ];
