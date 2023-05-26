@@ -1,18 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DestroyRef, Input, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-welcome',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  template: `
+  <h1>Angular Minimal template</h1>
+  <p>--> {{ routeInfo }}</p>
+  <button class="btn btn-plain">Test button</button>
+  `,
+  styles: []
 })
-export class WelcomeComponent implements OnInit {
+export default class WelcomeComponent {
 
-  constructor() { }
+  @Input() routeInfo?: string;
 
-  ngOnInit(): void {
+  constructor() {
+    inject(DestroyRef).onDestroy(() => {
+      // observable unsubscriptions etc...
+    })
   }
-
 }
